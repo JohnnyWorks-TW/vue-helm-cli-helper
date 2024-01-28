@@ -1,5 +1,7 @@
 # helm command line helper
 
+<img src="https://raw.githubusercontent.com/JohnnyWorks-TW/vue-helm-cli-helper/master/screenshot/screenshot_en.png" />
+
 ## Introduction
 
 Helm Chart Helper is a small tool that helps you quickly generate Helm Chart related commands. It can help you quickly understand and familiarize yourself with Helm related commands, thereby speeding up your development and deployment efficiency.

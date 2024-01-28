@@ -1,5 +1,7 @@
 # Helm Chart 小助手
 
+<img src="https://raw.githubusercontent.com/JohnnyWorks-TW/vue-helm-cli-helper/master/screenshot/screenshot_zh.png" />
+
 ## 介紹
 
 Helm Chart 小助手是一個幫您快速產生 Helm Chart 相關指令的小工具，它可以幫助你快速瞭解並熟悉 Helm 相關指令，進而加快您的開發佈建效率。
