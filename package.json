@@ -1,0 +1,43 @@
+{
+  "name": "helm-cli-helper",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "author": {
+    "name": "Johnny Sung",
+    "email": "j796160836@yahoo.com.tw"
+  },
+  "scripts": {
+    "lint": "echo \"No linting configured\"",
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
+    "make": "electron-forge make",
+    "package": "electron-forge package",
+    "publish": "electron-forge publish",
+    "start": "electron-forge start"
+  },
+  "main": ".vite/build/main.js",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "core-js": "^3.8.3",
+    "electron-squirrel-startup": "^1.0.0",
+    "markdown-it": "^14.0.0",
+    "markdown-it-highlightjs": "^4.0.1",
+    "vue": "^3.4.15",
+    "vue-i18n": "^9.9.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.2.0",
+    "@electron-forge/maker-deb": "^7.2.0",
+    "@electron-forge/maker-rpm": "^7.2.0",
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-zip": "^7.2.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
+    "@electron-forge/plugin-vite": "^7.2.0",
+    "@intlify/vue-i18n-loader": "^3.0.0",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "electron": "28.2.0",
+    "vue-cli-plugin-i18n": "~2.3.2"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "productName": "helm-cli-helper"
+}
