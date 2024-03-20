@@ -44,7 +44,7 @@ const createWindow = () => {
   });
 
   // Load the url of the dev server if in development mode
-  if (!process.env.IS_TEST) mainWindow.webContents.openDevTools();
+  if (process.env.IS_TEST) mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
