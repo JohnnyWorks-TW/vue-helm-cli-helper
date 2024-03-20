@@ -1,0 +1,58 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Build electron
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+    
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        os: [macos-latest, ubuntu-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+      - name: Run package
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: run package
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.3.1
+        with:
+          name: helm-cli-helper-${{ runner.os }}
+          path: out
+          overwrite: true
+      - name: Compress binary (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          Compress-Archive -Path out\* -DestinationPath helm-cli-helper-windows.zip
+      - name: Compress binary (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          zip -r helm-cli-helper-linux.zip out/*
+      - name: Compress binary (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          zip -r helm-cli-helper-mac.zip out/*
+      - name: Release
+        uses: softprops/action-gh-release@v2.0.4
+        with:
+          files: helm-cli-helper-*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
