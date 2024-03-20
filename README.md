@@ -6,6 +6,14 @@
 
 Helm Chart Helper is a small tool that helps you quickly generate Helm Chart related commands. It can help you quickly understand and familiarize yourself with Helm related commands, thereby speeding up your development and deployment efficiency.
 
+## Note for macOS
+
+Default macOS security settings prevent unsigned applications from being run. If you encounter an error message when running the application, you can try the following steps to allow the application to run:
+
+```bash
+sudo xattr -r -d com.apple.quarantine /Applications/helm-cli-helper.app
+```
+
 ## Technology
 
 - Vue 3
